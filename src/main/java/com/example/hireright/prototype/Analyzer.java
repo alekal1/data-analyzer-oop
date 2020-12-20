@@ -73,7 +73,7 @@ public abstract class Analyzer {
     public abstract void analyzeText(String filePath) throws IOException;
 
     /** Method for results' output based on analyzer type */
-    public abstract void outputResults(String filePath, int characterCounter, int wordCount, Integer capitalLetterCount);
+    protected abstract void outputResults(String filePath, int characterCounter, int wordCount, Integer capitalLetterCount);
 
     /** Method for printing total analyzed data to user */
     public abstract void outputAllResources();

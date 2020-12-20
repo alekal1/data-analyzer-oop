@@ -41,7 +41,7 @@ public class CommonAnalyzer extends Analyzer {
     }
 
     @Override
-    public void outputResults(String filePath, int characterCounter, int wordCount, Integer capitalLetterCount) {
+    protected void outputResults(String filePath, int characterCounter, int wordCount, Integer capitalLetterCount) {
         System.out.println("The " + filePath + " has the following analyzed data: ");
         System.out.println("Characters in the file (stop words are not included in count): " + characterCounter);
         System.out.println("Words in the file (stop words are not included in count): " + wordCount + "\n");
