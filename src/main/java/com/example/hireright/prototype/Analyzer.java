@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class Analyzer {
+    // Variables to store all resources data
     protected int totalCharactersAllResources = 0;
     protected int totalWordsAllResources = 0;
     protected int totalCapitalWordsAllResources = 0;

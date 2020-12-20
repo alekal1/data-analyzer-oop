@@ -53,23 +53,31 @@ public class Main {
         }
     }
 
+    /** Main method */
     public static void main(String[] args) throws IOException {
         configureCommandLine(args);
 
+        // Since user can input multiple files, need to handle it
         String[] filesPath = cmd.getOptionValue("F").split(",");
+        // Check if we should count capital letters
         boolean capitalLetterCount = cmd.hasOption("L");
 
+        // If should count capital letters
         if (capitalLetterCount) {
+            // Create capital letter analyzer
             Analyzer capitalLetterAnalyzer = new CapitalAnalyzer(cmd);
-            for (String path : filesPath) {
-                capitalLetterAnalyzer.analyzeText(path);
+            for (String path : filesPath) { // For each file path
+                capitalLetterAnalyzer.analyzeText(path); // analyze txt file
             }
+            // Output all analyzing data
             capitalLetterAnalyzer.outputAllResources();
-        } else {
+        } else { // If should not count capital letters
+            // Create common letter analyzer
             Analyzer commonAnalyzer = new CommonAnalyzer(cmd);
-            for (String path : filesPath) {
-                commonAnalyzer.analyzeText(path);
+            for (String path : filesPath) {  // For each file path
+                commonAnalyzer.analyzeText(path);  // analyze txt file
             }
+            // Output all analyzing data
             commonAnalyzer.outputAllResources();
         }
     }
