@@ -58,7 +58,6 @@ public class Main {
 
     /** Main method */
     public static void main(String[] args) throws IOException {
-        System.out.println(Arrays.asList(args));
         CommandLine cmd = configureCommandLine(args);
 
         // Since user can input multiple files, need to handle it
