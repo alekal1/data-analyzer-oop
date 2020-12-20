@@ -118,29 +118,6 @@ public class AnalyzerTest {
 
     }
 
-    @Test
-    public void testOutputFromAllResources() throws IOException {
-        String fileOne = configureFileInArg("capital.txt");
-        String fileTwo = configureFileInArg("nocapital.txt");
-
-        String joinedFilesPath = configureMultipleFilesInArgs(fileOne, fileTwo);
-
-        Analyzer capitalAnalyzer = new CapitalAnalyzer(cmd);
-
-        capitalAnalyzer.analyzeText(joinedFilesPath);
-        capitalAnalyzer.outputAllResources();
-
-        Assert.assertEquals(
-                "The " + fileOne + " has the following analyzed data: " + "\r\n" +
-                        "Characters in the file (stop words are not included in count): " + String.valueOf(64) +"\r\n" +
-                        "Words in the file (stop words are not included in count): " + String.valueOf(12) + "\r\n" +
-                        "Words in the file with first capital letter (stop words are not included in count): "
-                        + String.valueOf(1),
-                outputStreamCaptor.toString().trim()
-        );
-
-    }
-
     private String configureFileInArg(String name) {
         Path resourceDir = Paths.get("src", "test", "resources", name);
         String absolutePath = resourceDir.toFile().getAbsolutePath();
@@ -149,10 +126,4 @@ public class AnalyzerTest {
         return absolutePath;
     }
 
-    private String configureMultipleFilesInArgs(String f1, String f2) {
-        String joinedTwoFiles = f1 + "," + f2;
-        String[] args = {"-C", "-L", "-S=at,the,on", "-F=" + joinedTwoFiles + ""};
-        this.cmd = Main.configureCommandLine(args);
-        return joinedTwoFiles;
-    }
 }
