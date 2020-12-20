@@ -6,6 +6,10 @@ import org.apache.commons.cli.CommandLine;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * Common analyzer class extends Analyzer.
+ * This class is made for basic analyzing, so no capital letters counts
+ */
 public class CommonAnalyzer extends Analyzer {
     private final CommandLine cmd;
 

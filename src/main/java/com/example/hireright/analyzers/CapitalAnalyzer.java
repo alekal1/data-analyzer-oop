@@ -7,8 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * Common analyzer class extends Analyzer.
- * This class is made for basic analyzing, so no capital letters counts
+ * Capital analyzer class extends Analyzer.
+ * This class is made for analyzing basic analyzing + words stat starts with capital letter
  */
 public class CapitalAnalyzer extends Analyzer {
 

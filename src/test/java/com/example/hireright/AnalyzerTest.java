@@ -112,8 +112,6 @@ public class AnalyzerTest {
 
     @Test
     public void testAnalyzeUnexistingFile() throws IOException {
-        exceptionRule.expect(FileNotFoundException.class);
-
         String filePath = configureFileInArg("dummy.txt");
         Analyzer commonAnalyzer = new CommonAnalyzer(cmd);
         Analyzer capitalAnalyzer = new CapitalAnalyzer(cmd);
@@ -121,12 +119,13 @@ public class AnalyzerTest {
         commonAnalyzer.analyzeText(filePath);
         capitalAnalyzer.analyzeText(filePath);
 
+        exceptionRule.expect(FileNotFoundException.class);
     }
 
     private String configureFileInArg(String name) {
         Path resourceDir = Paths.get("src", "test", "resources", name);
         String absolutePath = resourceDir.toFile().getAbsolutePath();
-        String[] args = new String[]{"-C", "-L", "-S=at,the,on", "-F=" + absolutePath + ""};
+        String[] args = {"-C", "-L", "-S=at,the,on", "-F=" + absolutePath + ""};
         this.cmd = Main.configureCommandLine(args);
         return absolutePath;
     }

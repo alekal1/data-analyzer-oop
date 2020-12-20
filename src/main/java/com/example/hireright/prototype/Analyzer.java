@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Abstract class for further analyzer types
+ * */
 public abstract class Analyzer {
     // Variables to store all resources data
     protected int totalCharactersAllResources = 0;
