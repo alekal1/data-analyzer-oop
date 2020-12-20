@@ -6,12 +6,13 @@ import com.example.hireright.prototype.Analyzer;
 import org.apache.commons.cli.*;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
-    private static CommandLine cmd = null; // The command line variable
 
     /** Method for command line configuration. */
-    private static void configureCommandLine(String[] args) {
+    protected static CommandLine configureCommandLine(String[] args) {
+        CommandLine cmd = null; // The command line variable
 
         Options options = new Options(); // All arguments of user's input will be saved in options
 
@@ -51,11 +52,14 @@ public class Main {
             formatter.printHelp("Data analyzer", options);
             System.exit(1);
         }
+
+        return cmd;
     }
 
     /** Main method */
     public static void main(String[] args) throws IOException {
-        configureCommandLine(args);
+        System.out.println(Arrays.asList(args));
+        CommandLine cmd = configureCommandLine(args);
 
         // Since user can input multiple files, need to handle it
         String[] filesPath = cmd.getOptionValue("F").split(",");
