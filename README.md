@@ -1,7 +1,5 @@
 # Data analyzing programm (Java) UPDATED VERSION (OOP)
 This repository contains the data analyzing program written in Java (Maven) OOP.
-
-**To check out an older version go to https://github.com/alekal1/data-analyzer**
 ## Usage
 1. Go to /out/artifacts/data_analyzer_oop_jar
 2. Download and save data-analyzer-oop.jar file on your machine
